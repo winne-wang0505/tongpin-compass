@@ -1,0 +1,23 @@
+✔ provider adapter uses minimized data and schema; valid structured output accepted (82.6265ms)
+✔ malformed output, unavailable service and timeout have bounded retry (16.4098ms)
+{"event":"auth_error","level":"error"}
+Auth and application migrations applied.
+✔ real accounts, HTTP authorization, consent lifecycle, history, export and deletion (4541.47ms)
+✔ asymmetric preference satisfaction and separate boundary conflicts (5.7653ms)
+✔ unknown excluded; all missing suppresses score (0.5526ms)
+✔ unshared fields excluded in both directions and do not leak (2.9385ms)
+✔ negotiable plans not forced into failure (0.4496ms)
+✔ numeric boundaries inclusive, set intersection and scales (0.5922ms)
+✔ deterministic result and invalid range/minor rejection (18.0251ms)
+✔ AI schema and evidence reject unsupported claims (13.7688ms)
+{"event":"auth_error","level":"error"}
+Auth and application migrations applied.
+✔ password recovery uses single-use framework token; old session revoked (mock mail transport) (4409.209ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6167.7438

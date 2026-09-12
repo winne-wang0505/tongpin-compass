@@ -1,0 +1,28 @@
+name: verify
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.19.0"
+      - run: npm install --global pnpm@11.19.0
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/init-env.mjs
+      - run: pnpm migrate
+      - run: pnpm test
+      - run: pnpm build
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: |
+          pnpm dev > /tmp/compass-server.log 2>&1 &
+          for i in $(seq 1 30); do curl -fsS http://localhost:3000/api/health && break; sleep 1; done
+          PLAYWRIGHT_CHANNEL=chromium pnpm test:e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-evidence
+          path: |
+            playwright-report
+            test-results
